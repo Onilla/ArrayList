@@ -47,6 +47,9 @@ public class CustomArrayList<T> {
         size++;
     }
 
+    /**
+     * Проверяет индекс на нахождение в диапазоне от 0 до последнего элемента в списке
+     */
     private void checkIndexForAdd(int index) {
         if (index < 0 || index > size)
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + this);
@@ -76,7 +79,7 @@ public class CustomArrayList<T> {
     /**
      * Заменяет элемент в позиции в этом списке на новый элемент.
      *
-     * @param index - позиция элемента
+     * @param index   - позиция элемента
      * @param element - который должен быть сохранен
      * @return возвращает элемент, который ранее находился в указанной позиции
      * @throws IndexOutOfBoundsException - если индекс выходит за пределы списка
@@ -136,6 +139,11 @@ public class CustomArrayList<T> {
         return true;
     }
 
+    /**
+     * Находит индекс элемента в списке по значению
+     *
+     * @param element - элемент, индекс которого нужно найти
+     */
     private int findIndex(T element) {
         if (element == null)
             return -1;
@@ -180,17 +188,16 @@ public class CustomArrayList<T> {
         return size == elements.length;
     }
 
+    /**
+     * Увеличивает размер базового массива в 1,5 раза.
+     * Создает новый массив с новой емкостью. Копирует все элементы в новый массив.
+     */
     private void resize() {
         T[] oldElements = this.elements;
         this.elements = (T[]) new Object[oldElements.length + oldElements.length / 2];
         for (int i = 0; i < size; i++) {
             this.elements[i] = oldElements[i];
         }
-    }
-
-    @Override
-    public String toString() {
-        return Arrays.toString(Arrays.copyOf(elements, size));
     }
 
     /**
@@ -242,4 +249,10 @@ public class CustomArrayList<T> {
             quickSort(leftBound, high, comparator);
         }
     }
+
+    @Override
+    public String toString() {
+        return Arrays.toString(Arrays.copyOf(elements, size));
+    }
+
 }

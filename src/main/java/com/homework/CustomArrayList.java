@@ -206,7 +206,7 @@ public class CustomArrayList<T> {
      * @param comparator - используется для сравнения элементов списка
      * @throws NullPointerException - если список содержит null элементы
      */
-    public void sort(Comparator<? super T> comparator) {
+    public void sort(Comparator<T> comparator) {
         quickSort(0, size - 1, comparator);
     }
 
@@ -218,7 +218,7 @@ public class CustomArrayList<T> {
      * @param comparator - используется для сравнения элементов списка
      * @throws NullPointerException - если список содержит null элементы
      */
-    private void quickSort(int low, int high, Comparator comparator) {
+    private void quickSort(int low, int high, Comparator <T> comparator) {
         if (low >= high) {
             return;
         }

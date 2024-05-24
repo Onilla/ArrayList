@@ -264,9 +264,9 @@ public class TestCustomArrayList {
         testIntegerList.add(2);
         testIntegerList.add(3);
         testIntegerList.add(1);
-        testStringList.add("1");
         testStringList.add("2");
         testStringList.add("3");
+        testStringList.add("1");
         // Создаем компаратор для сравнения элементов списка
         Comparator<Integer> comparator = Comparator.naturalOrder();
         Comparator<String> comparatorString = Comparator.naturalOrder();
